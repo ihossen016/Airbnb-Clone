@@ -10,9 +10,11 @@ import MenuItem from "./MenuItem";
 
 // Hooks
 import useRegisterModal from "@/app/hooks/useRegisterModal";
+import useLoginModal from "@/app/hooks/useLoginModal";
 
 const UserMenu = () => {
     const registerModal = useRegisterModal();
+    const loginModal = useLoginModal();
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleOpen = useCallback(() => {
@@ -40,7 +42,10 @@ const UserMenu = () => {
                 <div className="absolute rounded-xl shadow-md w-[40vw] md:w-3/4 bg-white overflow-hidden right-0 top-12 text-sm">
                     <div className="flex flex-col cursor-pointer">
                         <>
-                            <MenuItem label="Login" onClick={() => {}} />
+                            <MenuItem
+                                label="Login"
+                                onClick={loginModal.onOpen}
+                            />
                             <MenuItem
                                 label="Sign up"
                                 onClick={registerModal.onOpen}
