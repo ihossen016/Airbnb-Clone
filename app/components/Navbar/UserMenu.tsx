@@ -13,11 +13,11 @@ import MenuItem from "./MenuItem";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 import useLoginModal from "@/app/hooks/useLoginModal";
 
-// prisma model
-import { User } from "@prisma/client";
+// others
+import { SafeUser } from "@/app/types";
 
 interface UserMenuProps {
-    currentUser?: User | null;
+    currentUser?: SafeUser | null;
 }
 
 const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
