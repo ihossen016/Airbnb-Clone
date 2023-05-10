@@ -10,6 +10,7 @@ import { signIn } from "next-auth/react";
 
 // Hooks
 import useRegisterModal from "@/app/hooks/useRegisterModal";
+import useLoginModal from "@/app/hooks/useLoginModal";
 
 // components
 import Modal from "./Modal";
@@ -19,6 +20,7 @@ import Button from "../Button";
 
 const RegisterModal = () => {
     const registerModal = useRegisterModal();
+    const loginModal = useLoginModal();
     const [isLoading, setIsLoading] = useState(false);
     const {
         register,
@@ -47,6 +49,11 @@ const RegisterModal = () => {
                 setIsLoading(false);
             });
     };
+
+    const onToggle = useCallback(() => {
+        registerModal.onClose();
+        loginModal.onOpen();
+    }, [loginModal, registerModal]);
 
     const bodyContent = (
         <div className="flex flex-col gap-4">
@@ -87,19 +94,27 @@ const RegisterModal = () => {
                 outline
                 label="Continue with Google"
                 icon={FcGoogle}
-                onClick={() => signIn("google")}
+                onClick={() => {
+                    signIn("google");
+                    setIsLoading(true);
+                }}
+                disabled={isLoading}
             />
             <Button
                 outline
                 label="Continue with Github"
                 icon={AiFillGithub}
-                onClick={() => signIn("github")}
+                onClick={() => {
+                    signIn("github");
+                    setIsLoading(true);
+                }}
+                disabled={isLoading}
             />
             <div className="text-neutral-500 text-center mt-4 font-light">
                 <p>
                     Already have an account?
                     <span
-                        onClick={() => {}}
+                        onClick={onToggle}
                         className="text-neutral-800 cursor-pointer hover:underline"
                     >
                         {" "}
