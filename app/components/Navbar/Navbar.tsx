@@ -8,10 +8,10 @@ import Search from "./Search";
 import UserMenu from "./UserMenu";
 
 // others
-import { SafeUser } from "@/app/types";
+import { User } from "@prisma/client";
 
 interface NavbarProps {
-    currentUser?: SafeUser | null;
+    currentUser?: User | null;
 }
 
 const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
