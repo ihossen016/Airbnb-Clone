@@ -5,7 +5,7 @@ import { IconType } from "react-icons";
 import { User } from "@prisma/client";
 import useCountries from "@/app/hooks/useCountry";
 import Avatar from "../Avatar";
-import CategoryView from "./ListingCategory";
+import ListingCategory from "./ListingCategory";
 
 const Map = dynamic(() => import("../Map"), {
     ssr: false,
@@ -54,7 +54,7 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
             </div>
             <hr />
             {category && (
-                <CategoryView
+                <ListingCategory
                     icon={category.icon}
                     label={category?.label}
                     description={category?.description}
