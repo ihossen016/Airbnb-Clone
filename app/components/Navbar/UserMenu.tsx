@@ -4,6 +4,7 @@
 import { AiOutlineMenu } from "react-icons/ai";
 import { useCallback, useState } from "react";
 import { signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 // componente
 import Avatar from "../Avatar";
@@ -22,6 +23,7 @@ interface UserMenuProps {
 }
 
 const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
+    const router = useRouter();
     const registerModal = useRegisterModal();
     const loginModal = useLoginModal();
     const rentModal = useRentModal();
@@ -64,7 +66,10 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                     <div className="flex flex-col cursor-pointer">
                         {currentUser ? (
                             <>
-                                <MenuItem label="My trips" onClick={() => {}} />
+                                <MenuItem
+                                    label="My trips"
+                                    onClick={() => router.push("/trips")}
+                                />
                                 <MenuItem
                                     label="My favourites"
                                     onClick={() => {}}
