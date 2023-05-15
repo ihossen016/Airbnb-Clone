@@ -267,6 +267,7 @@ const RentModal = () => {
             isOpen={rentModal.isOpen}
             onClose={rentModal.onClose}
             onSubmit={handleSubmit(onSubmit)}
+            disabled={isLoading}
             actionLabel={actionLabel}
             secondaryActionLabel={secondaryActionLabel}
             secondaryAction={step === STEPS.CATEGORY ? undefined : onBack}
