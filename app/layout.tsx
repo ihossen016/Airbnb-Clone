@@ -19,6 +19,9 @@ export const metadata = {
     description: "Airbnb clone.",
 };
 
+export const dynamic = "force-dynamic";
+// 'auto' | 'force-dynamic' | 'error' | 'force-static'
+
 export default async function RootLayout({
     children,
 }: {
