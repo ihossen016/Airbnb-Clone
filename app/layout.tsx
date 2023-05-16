@@ -15,7 +15,7 @@ import SearchModal from "./components/modals/SearchModal";
 const font = Nunito({ subsets: ["latin"] });
 
 export const metadata = {
-    title: "Airbnb",
+    title: "Airbnb Clone",
     description: "Airbnb clone.",
 };
 
